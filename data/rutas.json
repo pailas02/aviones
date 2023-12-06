@@ -1,0 +1,378 @@
+[
+    {
+        "origen": "El Eden",
+        "destino": "Perales",
+        "distancia": 500,
+        "tiempo": 51,
+        "peso": 500,
+        "Id": 2
+    },
+    {
+        "origen": "Perales",
+        "destino": "El Eden",
+        "distancia": 500,
+        "tiempo": 51,
+        "peso": 500,
+        "Id": 4
+    },
+    {
+        "origen": "El Eden",
+        "destino": "Camilo Daza",
+        "distancia": 250,
+        "tiempo": 100,
+        "peso": 250,
+        "Id": 6
+    },
+    {
+        "origen": "Camilo Daza",
+        "destino": "El Eden",
+        "distancia": 250,
+        "tiempo": 100,
+        "peso": 250,
+        "Id": 8
+    },
+    {
+        "origen": "Camilo Daza",
+        "destino": "San Luis",
+        "distancia": 150,
+        "tiempo": 50,
+        "peso": 150,
+        "Id": 10
+    },
+    {
+        "origen": "San Luis",
+        "destino": "Camilo Daza",
+        "distancia": 150,
+        "tiempo": 50,
+        "peso": 150,
+        "Id": 12
+    },
+    {
+        "origen": "Guaymaral",
+        "destino": "Camilo Daza",
+        "distancia": 230,
+        "tiempo": 150,
+        "peso": 230,
+        "Id": 14
+    },
+    {
+        "origen": "Camilo Daza",
+        "destino": "Guaymaral",
+        "distancia": 230,
+        "tiempo": 150,
+        "peso": 230,
+        "Id": 16
+    },
+    {
+        "origen": "Mateca\u00f1a",
+        "destino": "El Dorado",
+        "distancia": 120,
+        "tiempo": 100,
+        "peso": 120,
+        "Id": 18
+    },
+    {
+        "origen": "El Dorado",
+        "destino": "Mateca\u00f1a",
+        "distancia": 120,
+        "tiempo": 100,
+        "peso": 120,
+        "Id": 20
+    },
+    {
+        "origen": "El Dorado",
+        "destino": "Palogrande",
+        "distancia": 140,
+        "tiempo": 180,
+        "peso": 140,
+        "Id": 22
+    },
+    {
+        "origen": "Guaymaral",
+        "destino": "Palogrande",
+        "distancia": 100,
+        "tiempo": 50,
+        "peso": 100,
+        "Id": 24
+    },
+    {
+        "origen": "Guaymaral",
+        "destino": "Perales",
+        "distancia": 200,
+        "tiempo": 130,
+        "peso": 200,
+        "Id": 26
+    },
+    {
+        "origen": "Guaymaral",
+        "destino": "Almirante Padilla",
+        "distancia": 90,
+        "tiempo": 50,
+        "peso": 90,
+        "Id": 28
+    },
+    {
+        "origen": "Almirante Padilla",
+        "destino": "Camilo Daza",
+        "distancia": 200,
+        "tiempo": 110,
+        "peso": 200,
+        "Id": 30
+    },
+    {
+        "origen": "Palogrande",
+        "destino": "Jorge Isaacs",
+        "distancia": 300,
+        "tiempo": 130,
+        "peso": 300,
+        "Id": 32
+    },
+    {
+        "origen": "Jorge Isaacs",
+        "destino": "Perales",
+        "distancia": 50,
+        "tiempo": 25,
+        "peso": 50,
+        "Id": 34
+    },
+    {
+        "origen": "Palogrande",
+        "destino": "Perales",
+        "distancia": 230,
+        "tiempo": 90,
+        "peso": 230,
+        "Id": 36
+    },
+    {
+        "origen": "Perales",
+        "destino": "Almirante Padilla",
+        "distancia": 90,
+        "tiempo": 70,
+        "peso": 90,
+        "Id": 38
+    },
+    {
+        "origen": "Palogrande",
+        "destino": "El Eden",
+        "distancia": 180,
+        "tiempo": 100,
+        "peso": 180,
+        "Id": 40
+    },
+    {
+        "origen": "La Nubia",
+        "destino": "Simon Bolivar",
+        "distancia": 300,
+        "tiempo": 200,
+        "peso": 300,
+        "Id": 42
+    },
+    {
+        "origen": "La Nubia",
+        "destino": "Camilo Daza",
+        "distancia": 90,
+        "tiempo": 75,
+        "peso": 90,
+        "Id": 44
+    },
+    {
+        "origen": "San Luis",
+        "destino": "Simon Bolivar",
+        "distancia": 300,
+        "tiempo": 120,
+        "peso": 300,
+        "Id": 46
+    },
+    {
+        "origen": "El Dorado",
+        "destino": "Jorge Isaacs",
+        "distancia": 300,
+        "tiempo": 210,
+        "peso": 300,
+        "Id": 48
+    },
+    {
+        "origen": "Palogrande",
+        "destino": "El Dorado",
+        "distancia": 140,
+        "tiempo": 180,
+        "peso": 140,
+        "Id": 50
+    },
+    {
+        "origen": "Palogrande",
+        "destino": "Guaymaral",
+        "distancia": 100,
+        "tiempo": 50,
+        "peso": 100,
+        "Id": 52
+    },
+    {
+        "origen": "Perales",
+        "destino": "Guaymaral",
+        "distancia": 200,
+        "tiempo": 130,
+        "peso": 200,
+        "Id": 54
+    },
+    {
+        "origen": "Almirante Padilla",
+        "destino": "Guaymaral",
+        "distancia": 90,
+        "tiempo": 50,
+        "peso": 90,
+        "Id": 56
+    },
+    {
+        "origen": "Camilo Daza",
+        "destino": "Almirante Padilla",
+        "distancia": 200,
+        "tiempo": 110,
+        "peso": 200,
+        "Id": 58
+    },
+    {
+        "origen": "Jorge Isaacs",
+        "destino": "Palogrande",
+        "distancia": 300,
+        "tiempo": 130,
+        "peso": 300,
+        "Id": 60
+    },
+    {
+        "origen": "Perales",
+        "destino": "Jorge Isaacs",
+        "distancia": 50,
+        "tiempo": 25,
+        "peso": 50,
+        "Id": 62
+    },
+    {
+        "origen": "Perales",
+        "destino": "Palogrande",
+        "distancia": 230,
+        "tiempo": 90,
+        "peso": 230,
+        "Id": 64
+    },
+    {
+        "origen": "Almirante Padilla",
+        "destino": "Perales",
+        "distancia": 90,
+        "tiempo": 70,
+        "peso": 90,
+        "Id": 66
+    },
+    {
+        "origen": "El Eden",
+        "destino": "Palogrande",
+        "distancia": 180,
+        "tiempo": 100,
+        "peso": 180,
+        "Id": 68
+    },
+    {
+        "origen": "Simon Bolivar",
+        "destino": "La Nubia",
+        "distancia": 300,
+        "tiempo": 200,
+        "peso": 300,
+        "Id": 70
+    },
+    {
+        "origen": "Camilo Daza",
+        "destino": "La Nubia",
+        "distancia": 90,
+        "tiempo": 75,
+        "peso": 90,
+        "Id": 72
+    },
+    {
+        "origen": "Simon Bolivar",
+        "destino": "San Luis",
+        "distancia": 300,
+        "tiempo": 120,
+        "peso": 300,
+        "Id": 74
+    },
+    {
+        "origen": "Jorge Isaacs",
+        "destino": "El Dorado",
+        "distancia": 300,
+        "tiempo": 210,
+        "peso": 300,
+        "Id": 76
+    },
+    {
+        "origen": "Mateca\u00f1a",
+        "destino": "El Eden",
+        "distancia": 130,
+        "tiempo": 90,
+        "peso": 130,
+        "Id": 78
+    },
+    {
+        "origen": "El Eden",
+        "destino": "La Nubia",
+        "distancia": 298,
+        "tiempo": 130,
+        "peso": 298,
+        "Id": 80
+    },
+    {
+        "origen": "Almirante Padilla",
+        "destino": "Simon Bolivar",
+        "distancia": 100,
+        "tiempo": 78,
+        "peso": 100,
+        "Id": 82
+    },
+    {
+        "origen": "El Eden",
+        "destino": "Mateca\u00f1a",
+        "distancia": 130,
+        "tiempo": 90,
+        "peso": 130,
+        "Id": 84
+    },
+    {
+        "origen": "La Nubia",
+        "destino": "El Eden",
+        "distancia": 298,
+        "tiempo": 130,
+        "peso": 298,
+        "Id": 86
+    },
+    {
+        "origen": "Simon Bolivar",
+        "destino": "Almirante Padilla",
+        "distancia": 100,
+        "tiempo": 78,
+        "peso": 100,
+        "Id": 88
+    },
+    {
+        "origen": "El Eden",
+        "destino": "Almirante Padilla",
+        "distancia": 500,
+        "tiempo": 500,
+        "peso": 500,
+        "Id": 90
+    },
+    {
+        "origen": "Almirante Padilla",
+        "destino": "El Eden",
+        "distancia": 500,
+        "tiempo": 500,
+        "peso": 500,
+        "Id": 92
+    },
+    {
+        "origen": "su puta madre",
+        "destino": "su puta madre",
+        "distancia": 20,
+        "tiempo": 100,
+        "peso": 20,
+        "Id": null
+    }
+]
