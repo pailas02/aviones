@@ -1,5 +1,5 @@
 Proyecto 2: Rutas
-Fecha de entrega 14 de jun a las 23:59 Puntos 50 Disponible 26 de mayo en 0:00 - 14 de jun en 23:59
+Fecha de entrega 12 de dic a las 23:59 Puntos 50 Disponible 16 de Agosto en 0:00 - 14 de Dic en 23:59
 Proyecto: Desarrollo de un sistema de gestión de rutas de transporte aéreo en Python, utilizando grafos y una interfaz gráfica.
 
 Objetivo: Crear una aplicación que permita gestionar y optimizar las rutas de transporte aéreo, utilizando grafos para representar las conexiones entre aeropuertos, y una interfaz gráfica que facilite la visualización y manipulación de las rutas.
