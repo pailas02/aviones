@@ -271,10 +271,39 @@ def main ():
     
     mainloop()
 
+def ventana_inicial():
+    def abrir_main_desde_ventana_inicial():
+        ventana_inicio.destroy()  # Cierra la ventana inicial
+        main()  # Abre la función main()
 
+    # Creación de la ventana inicial
+    ventana_inicio = Tk()
+    ventana_inicio.title("Sistema de Gestión de Rutas Aéreas")
 
-# Ejecución de todo el programa
+    # Configuración de colores y estilo
+    color_fondo = "#FFFFFF"  # Color de fondo (blanco)
+    color_boton = "#4CAF50"  # Color del botón (verde)
+    color_texto = "#333333"  # Color del texto (gris oscuro)
+
+    ventana_inicio.configure(bg=color_fondo)
+
+    # Etiqueta de bienvenida
+    etiqueta_bienvenida = Label(ventana_inicio, text="Bienvenido al Sistema de Gestión de Rutas Aéreas", font=("Arial", 16), fg=color_texto, bg=color_fondo)
+    etiqueta_bienvenida.pack(pady=20)
+
+    # Botón para iniciar la aplicación
+    boton_iniciar = Button(ventana_inicio, text="Iniciar", command=abrir_main_desde_ventana_inicial, width=20, bg=color_boton, fg=color_fondo)
+    boton_iniciar.pack(pady=10)
+
+    # Información adicional
+    etiqueta_info = Label(ventana_inicio, text="Presiona 'Iniciar' para comenzar la gestión de rutas", font=("Arial", 10), fg=color_texto, bg=color_fondo)
+    etiqueta_info.pack(pady=10)
+
+    ventana_inicio.attributes('-topmost', True)  # Mantener la ventana arriba
+    ventana_inicio.mainloop()
+
 if __name__ == "__main__":
-    main()
+    ventana_inicial()
+
 
 
