@@ -43,6 +43,11 @@
       "nombre": "Air France",
       "x": 669,
       "y": 450
-    }
+    },
+    {
+        "nombre": "Air Canada",
+        "x": 600,
+        "y": 450
+      }
   ]
   
