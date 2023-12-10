@@ -3,12 +3,12 @@
 
 # Importación de módulos
 from clases.grafo import *
+import random
 from interfaz import *
 import json
-from tkinter import simpledialog, messagebox
+from tkinter import simpledialog, messagebox 
 from tkinter import *
 from helpers.Keyboard import *
-
 
 # Creación de objetos
 aeropuertos = Grafo() # Creación del grafo
@@ -128,12 +128,9 @@ def opcion(indice,indice2):
     
 def editar_valor(id):
     arista = None
-    try:
-        for i in aeropuertos.listaAristas:
-            if i.Id == id:
-                arista = i
-    except:
-        print("Error")
+    for i in aeropuertos.listaAristas:
+        if i.Id == id:
+            arista = i
     origen = arista.origen
     destino = arista.destino
     arista = aeropuertos.obtenerArista(origen, destino, aeropuertos.listaAristas)
@@ -141,13 +138,13 @@ def editar_valor(id):
     indice = aeropuertos.listaAristas.index(arista)
     indice2 = aeropuertos.listaAristas.index(arista2)
     value = messagebox.askquestion("Confirmar", f"¿Desea actualizar la ruta?:\n {origen} - {destino}")
-    if value != "no":
+    if value != "No":
         opcion(indice,indice2)
         interfaz.xyz22.delete("peso")
         interfaz.crearAristas()
         interfaz.crearVertices(aeropuertos.listaVertices)
         interfaz.getVentana().update()
-    actualizar_data_ruta()
+        actualizar_data_ruta()
 
 #prim
 def prim():
@@ -173,63 +170,20 @@ def prim():
         for i in aeropuertos.listaAristas:
             i.peso = i.distancia
             
-#kruskal
-def kruskal():
-    value = messagebox.askquestion("Kruskal", "Desea buscar por tiempo\n Nota: si No se tomara por defecto el valor de distancia")
-    if value != "no":
-        print("Paso por aca")
-        for i in aeropuertos.listaAristas:
-            i.peso = i.tiempo
-    kruskal = aeropuertos.kruskal()
-    algoritmo = "Kruskal" + "  [" + kruskal[0].origen + "] ---> ["+ kruskal[0].destino + "]"  
-    interfaz.xyz22.delete("titulo-recorrido")
-    interfaz.getXyz22().create_text(
-            300,
-            10,
-            text=algoritmo,
-            anchor="nw",
-            font="Roboto 25 bold",
-            tags=["titulo-recorrido"],
-            fill="#8908DB"
-        )
-    interfaz.crearAristasRecorrido(kruskal, "#8908DB")
-    if value != "no":
-        for i in aeropuertos.listaAristas:
-            i.peso = i.distancia
-
 # Dijkstra
 """ Encuentra la ruta mas corta de entre 2 vertices en específicos"""
 def dijkstra():
-    value = messagebox.askquestion("Dijkstra", "Desea buscar por tiempo\n Nota: si No se tomara por defecto el valor de distancia")
-    if value != "no":
-        print("Paso por aca")
-        for i in aeropuertos.listaAristas:
-            i.peso = i.tiempo
-    while True:
-        try:
-            origen =simpledialog.askstring("Origen", "Ingrese el origen: ")
-            if aeropuertos.existeVertice(origen,aeropuertos.listaVertices):
-                break
-        except:
-            messagebox.showinfo("¡Error!","El valor no es correcto")
-        
+    # origen ="Matecaña"
     string_mostrar = ""
     cont= 1
     for i in librerias:
         string_mostrar += f'{cont}-{i["nombre"]}\n'
         cont += 1
     # Verifica la entrada de lita de el numero del destino
-    while True:
-        try:
-            destino =int(simpledialog.askstring("Destino", f"{string_mostrar}\nIngrese El numero del destino:"))
-            if destino >= 1 and destino <= 12:
-                break
-            
-        except:
-            messagebox.showinfo("¡Error!","El valor no es correcto")
-    print(string_mostrar)
-    dijkstra = aeropuertos.dijkstra(origen, librerias[destino-1]["nombre"])
-    algoritmo = "Dijkstra" + "  [" + origen + "] ---> ["+ librerias[destino-1]["nombre"] + "]"  
+    origen = Keyboard.readIntRangeDefaultErrorMessage(f'{string_mostrar}\nIngrese El numero del destino:',1,12)
+    destino = Keyboard.readIntRangeDefaultErrorMessage(f'{string_mostrar}\nIngrese El numero del destino:',1,12)
+    dijkstra = aeropuertos.dijkstra(librerias[origen-1]["nombre"], librerias[destino-1]["nombre"])
+    algoritmo = "Dijkstra" + "  [" + librerias[origen-1]["nombre"] + "] ---> ["+ librerias[destino-1]["nombre"] + "]"  
     interfaz.xyz22.delete("titulo-recorrido")
     interfaz.getXyz22().create_text(
             300,
@@ -241,9 +195,6 @@ def dijkstra():
             fill="#8908DB"
         )
     interfaz.crearAristasRecorrido(dijkstra, "#8908DB")
-    if value != "no":
-        for i in aeropuertos.listaAristas:
-            i.peso = i.distancia
 
 
 
@@ -263,7 +214,8 @@ def main ():
     opciones.add_cascade(label="Editar Ruta", command= cambiar_editar)
     opciones.add_cascade(label="Dijkstra", command= dijkstra)
     opciones.add_cascade(label="Prim", command= prim)
-    opciones.add_cascade(label="Kruskal", command= kruskal)
+    # opciones.add_cascade(label="Kruskal", command= kruskal)
+    # opciones.add_cascade(label="Boruvka", command= boruvka)
 
     # Genera carga del grafo
     interfaz.generar() 
@@ -283,32 +235,28 @@ def ventana_inicial():
 
 
     # Configuración de colores y estilo
-    color_fondo = "#FFFFFF"  # Color de fondo (blanco)
-    color_boton = "#4CAF50"  # Color del botón (verde)
+    color_fondo = "#D3E3FC"  # Color de fondo (azul claro)
+    color_boton = "#0D6EFD"  # Color del botón (azul intenso)
     color_texto = "#333333"  # Color del texto (gris oscuro)
 
     ventana_inicio.configure(bg=color_fondo)
     
     # Etiqueta de bienvenida
-    etiqueta_bienvenida = Label(ventana_inicio, text="Bienvenido al Sistema de Gestión de Rutas Aéreas", font=("Arial", 18), fg=color_texto, bg=color_fondo)
+    etiqueta_bienvenida = Label(ventana_inicio, text="Bienvenido al Sistema de Gestión de Rutas Aéreas", font=("Arial", 20, "bold"), fg=color_texto, bg=color_fondo)
     etiqueta_bienvenida.pack(pady=20)
 
-    # Descripción del sistema
-    etiqueta_descripcion = Label(ventana_inicio, text="Este sistema le permite gestionar las rutas aéreas de su empresa.", font=("Arial", 12), fg=color_texto, bg=color_fondo)
+    etiqueta_descripcion = Label(ventana_inicio, text="Gestione fácilmente las rutas aéreas de su empresa.", font=("Arial", 14), fg=color_texto, bg=color_fondo)
     etiqueta_descripcion.pack(pady=10)
 
-    # Botón para iniciar la aplicación
-    boton_iniciar = Button(ventana_inicio, text="Iniciar", command=abrir_main_desde_ventana_inicial, width=20, bg=color_boton, fg=color_texto)
-    boton_iniciar.pack(pady=10)
+    boton_iniciar = Button(ventana_inicio, text="Iniciar", command=abrir_main_desde_ventana_inicial, width=15, bg=color_boton, fg="white", font=("Arial", 12, "bold"))
+    boton_iniciar.pack(pady=20)
 
-    # Botón de ayuda
-    boton_ayuda = Button(ventana_inicio, text="Ayuda", command=lambda: messagebox.showinfo("Ayuda", "Este es un sistema de gestión de rutas aéreas."), width=20, bg=color_boton, fg=color_texto)
+    boton_ayuda = Button(ventana_inicio, text="Ayuda", command=lambda: messagebox.showinfo("Ayuda", "Sistema de gestión de rutas aéreas."), width=15, bg=color_boton, fg="white", font=("Arial", 12, "bold"))
     boton_ayuda.pack(pady=10)
 
-    ventana_inicio.attributes('-topmost', True)  # Mantener la ventana arriba
+    ventana_inicio.attributes('-topmost', True)  
     ventana_inicio.mainloop()
 
 
 if __name__ == "__main__":
     ventana_inicial()
-
