@@ -1,53 +1,52 @@
 [
-    {
-      "nombre": "Avianca",
-      "x": 578,
-      "y": 108
-    },
-    {
-      "nombre": "Latam",
-      "x": 87,
-      "y": 158
-    },
-    {
-      "nombre": "Viva Air",
-      "x": 300,
-      "y": 241
-    },
-    {
-      "nombre": "Copa Airlines",
-      "x": 814,
-      "y": 241
-    },
-    {
-      "nombre": "Aeromexico",
-      "x": 1032,
-      "y": 152
-    },
-    {
-      "nombre": "United Airlines",
-      "x": 528,
-      "y": 340
-    },
-    {
-      "nombre": "American Airlines",
-      "x": 962,
-      "y": 362
-    },
-    {
-      "nombre": "Iberia",
-      "x": 87,
-      "y": 520
-    },
-    {
-      "nombre": "Air France",
-      "x": 669,
-      "y": 450
-    },
-    {
-        "nombre": "Air Canada",
-        "x": 600,
-        "y": 450
-      }
-  ]
-  
+  {
+    "nombre": "Avianca",
+    "x": 578,
+    "y": 80
+  },
+  {
+    "nombre": "United Airlines",
+    "x": 150,
+    "y": 250
+  },
+  {
+    "nombre": "Aeromexico",
+    "x": 180,
+    "y": 400
+  },
+  {
+    "nombre": "Copa Airlines",
+    "x": 1050,
+    "y": 380
+  },
+  {
+    "nombre": "Viva Air",
+    "x": 1032,
+    "y": 130
+  },
+  {
+    "nombre": "Latam",
+    "x": 750,
+    "y": 340
+  },
+  {
+    "nombre": "Iberia",
+    "x": 850,
+    "y": 550
+  },
+  {
+    "nombre": "American Airlines",
+    "x": 450,
+    "y": 550
+  },
+  {
+    "nombre": "Air France",
+    "x": 669,
+    "y": 450
+  },
+  {
+    "nombre": "Air Canada",
+    "x": 250,
+    "y": 150
+  }
+]
