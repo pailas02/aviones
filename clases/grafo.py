@@ -119,61 +119,48 @@ class Grafo:
                break
          if crear:
             self.ingresarArista(i.getDestino(), i.getOrigen(), i.getPeso(),i.tiempo)
-   
-
-
 
 
    #prim
+   
    def prim(self, origen):
-      verticesAux = []
-      verticesD = []
-      caminos = self.ordenarPrim(origen, verticesAux)
-      self.rutas(verticesD, verticesAux, origen, origen)
-      aristas = []
-      for i in range(1,len(verticesD)):
-         aristas.append(self.obtenerArista(verticesD[i],verticesAux[i], self.listaAristas))
-      return aristas
+        aristas = copy(self.listaAristas)
+
+        # eliminar aristas repetidas
+        for i in aristas:
+            arista = False
+            for j in aristas:
+                if i.getOrigen() == j.getDestino() and i.getDestino() == j.getOrigen():
+                    arista = j
+                    break
+            if arista:
+                aristas.pop(aristas.index(arista))
+
+        visitados = []  # para vetices visitados
+
+        for v in self.listaVertices:# inicializar con el tamaño de los vertice con false
+            visitados.append(False)
+        lista = self.ordenarPrim(visitados, aristas, [])
+        return lista
+
+
+ 
+
+   def ordenarPrim(self, visitados, aristas, recorrido):
+         if len(recorrido) == len(self.listaVertices)-1:# retornar cuando el arbol de expacion minima este formado
+            del recorrido[6]
+            return recorrido
+         for vis in aristas:  # eliminar aristas que formen ciclos
+            if visitados[self.listaVertices.index(self.obtenerVertice(vis.getDestino(), self.listaVertices))] == True:
+               aristas.pop(aristas.index(vis))
+
+         menor = aristas[0]
+         for a in aristas:  # obtener arista de menor peso
+            if a.getPeso() < menor.getPeso():
+               menor = a
+         recorrido.append(aristas.pop(aristas.index(menor)))
+         return self.ordenarPrim(visitados, aristas, recorrido)
    
-   def ordenarPrim(self, origen, verticesAux):
-      visitados = []
-      caminos = []
-      for v in self.listaVertices:
-         caminos.append(float("inf"))
-         visitados.append(False)
-         verticesAux.append(None)
-         if v.getNombre() == origen:
-            caminos[self.listaVertices.index(v)] = 0
-            verticesAux[self.listaVertices.index(v)] = v.getNombre()
-      while not self.todosVisitados(visitados):
-         menorAux = self.menorNoVisitado(caminos, visitados)
-         if menorAux == None:
-            break
-         indice = self.listaVertices.index(menorAux)
-         visitados[indice] = True
-         valorActual = caminos[indice]
-         for adyacencia in menorAux.getListaAdyacentes():
-            indiceNuevo = self.listaVertices.index(self.obtenerVertice(adyacencia, self.listaVertices))
-            arista = self.verificarArista(menorAux.getNombre(), adyacencia)
-            if caminos[indiceNuevo] > arista.getPeso():
-               caminos[indiceNuevo] = arista.getPeso()
-               verticesAux[indiceNuevo] = self.listaVertices[indice].getNombre()
-      return caminos
-   
-   #kruskal
-   def kruskal(self):
-      aristas = copy(self.listaAristas)
-      aristas.sort(key=lambda arista: arista.getPeso())
-      aristasMST = []
-      verticesAux = []
-      for v in self.listaVertices:
-         verticesAux.append(v.getNombre())
-      for a in aristas:
-         if not self.formaCiclo(a, verticesAux):
-            aristasMST.append(a)
-            verticesAux[self.listaVertices.index(self.obtenerVertice(a.getDestino(), self.listaVertices))] = verticesAux[self.listaVertices.index(self.obtenerVertice(a.getOrigen(), self.listaVertices))]
-      return aristasMST
-  
    
    # Dijkstra
    def dijkstra(self, origen, destino): 

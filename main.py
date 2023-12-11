@@ -3,7 +3,6 @@
 
 # Importación de módulos
 from clases.grafo import *
-import random
 from interfaz import *
 import json
 from tkinter import simpledialog, messagebox 
@@ -147,14 +146,20 @@ def editar_valor(id):
         actualizar_data_ruta()
 
 #prim
+""" Encuentra el arbol de expansion minima apartir de un vertice en específico"""
 def prim():
-    value = messagebox.askquestion("Prim", "Desea buscar por tiempo\n Nota: si No se tomara por defecto el valor de distancia")
-    if value != "no":
-        print("Paso por aca")
-        for i in aeropuertos.listaAristas:
-            i.peso = i.tiempo
-    prim = aeropuertos.prim()
-    algoritmo = "Prim" + "  [" + prim[0].origen + "] ---> ["+ prim[0].destino + "]"  
+    string_mostrar = ""
+    cont= 1
+    for i in librerias:
+        string_mostrar += f'{cont}-{i["nombre"]}\n'
+        cont += 1
+    origen = Keyboard.readIntRangeDefaultErrorMessage(f'{string_mostrar}\nIngrese El numero del origen:',1,12)
+    prim = aeropuertos.prim(origen)
+    prim = aeropuertos.prim(origen)
+    for i in prim:
+      print("Prim" + "  [" + i.origen + "] ---> ["+ i.destino + "]")
+    print(prim)
+    algoritmo = "Prim" + "  [" + prim[0].origen + "]"  
     interfaz.xyz22.delete("titulo-recorrido")
     interfaz.getXyz22().create_text(
             300,
@@ -166,9 +171,10 @@ def prim():
             fill="#8908DB"
         )
     interfaz.crearAristasRecorrido(prim, "#8908DB")
-    if value != "no":
-        for i in aeropuertos.listaAristas:
-            i.peso = i.distancia
+   
+
+
+
             
 # Dijkstra
 """ Encuentra la ruta mas corta de entre 2 vertices en específicos"""
@@ -205,18 +211,14 @@ def main ():
     
     # Ejecución de los algoritmos
     interfaz.getVentana().config(menu=opciones) # Mostrar ventana del menu
-    # opciones.add_cascade(label="Camino bloqueado", command= caminoBloqueado)
-    # opciones.add_cascade(label="Profundidad", command= profundidad)
-    # opciones.add_cascade(label="Anchura", command= anchura)
     interfaz.getVentana().bind("<Button-1>", agregar_vertice)
     opciones.add_cascade(label="Agregar Aeropuerto", command= cambiar)
     opciones.add_cascade(label="Agregar Ruta", command= cambiar_valor)
     opciones.add_cascade(label="Editar Ruta", command= cambiar_editar)
     opciones.add_cascade(label="Dijkstra", command= dijkstra)
     opciones.add_cascade(label="Prim", command= prim)
-    # opciones.add_cascade(label="Kruskal", command= kruskal)
-    # opciones.add_cascade(label="Boruvka", command= boruvka)
-
+  
+  
     # Genera carga del grafo
     interfaz.generar() 
     interfaz.crearVertices(aeropuertos.getListaVertices())
