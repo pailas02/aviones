@@ -272,11 +272,7 @@ def ventana_inicial():
     def restaurar(event):
         boton = event.widget
         boton.config(bg=color_boton, fg='white')
-        
-    # Enlace a la documentación del proyecto
-    enlace_documentacion = Label(ventana_inicio, text="Documentación", font=("Arial", 12, "bold"), fg=color_boton, bg=color_fondo)
-    enlace_documentacion.bind("<Button-1>", lambda event: webbrowser.open("https://github.com/pailas02"))
-    enlace_documentacion.pack(pady=10)
+
 
     # Entradas para el usuario y la contraseña
     etiqueta_usuario = Label(ventana_inicio, text="Usuario:", font=("Arial", 12), fg=color_texto, bg=color_fondo)
