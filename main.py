@@ -225,13 +225,27 @@ def main ():
     
     mainloop()
 
+def validar_usuario(usuario, contrasena):
+    usuarios_validos = {
+        "jorge": "123",
+        "jesus": "12345"
+    }
+
+    return usuario in usuarios_validos and usuarios_validos[usuario] == contrasena
 
 def ventana_inicial():
-    def abrir_main_desde_ventana_inicial():
-        ventana_inicio.destroy()  # Cierra la ventana inicial
-        main()  # Abre la función main()
+    def abrir_main_desde_ventana_inicial(usuario_entry, contrasena_entry):
+        usuario = usuario_entry.get()
+        contrasena = contrasena_entry.get()
 
-    # Creación de la ventana inicial
+        if validar_usuario(usuario, contrasena):
+            ventana_inicio.destroy()  # Cierra la ventana inicial
+            main()  # Abre la función main()
+        else:
+            messagebox.showerror("Error de inicio de sesión", "Usuario o contraseña incorrectos")
+
+
+   # Creación de la ventana inicial
     ventana_inicio = Tk()
     ventana_inicio.title("Sistema de Gestión de Rutas Aéreas")
 
@@ -249,16 +263,46 @@ def ventana_inicial():
 
     etiqueta_descripcion = Label(ventana_inicio, text="Gestione fácilmente las rutas aéreas de su empresa.", font=("Arial", 14), fg=color_texto, bg=color_fondo)
     etiqueta_descripcion.pack(pady=10)
+    
+    # Función para resaltar el botón al pasar el ratón
+    def resaltar(event):
+        boton = event.widget
+        boton.config(bg='blue', fg='white')
 
-    boton_iniciar = Button(ventana_inicio, text="Iniciar", command=abrir_main_desde_ventana_inicial, width=15, bg=color_boton, fg="white", font=("Arial", 12, "bold"))
-    boton_iniciar.pack(pady=20)
+    def restaurar(event):
+        boton = event.widget
+        boton.config(bg=color_boton, fg='white')
+        
+    # Enlace a la documentación del proyecto
+    enlace_documentacion = Label(ventana_inicio, text="Documentación", font=("Arial", 12, "bold"), fg=color_boton, bg=color_fondo)
+    enlace_documentacion.bind("<Button-1>", lambda event: webbrowser.open("https://github.com/pailas02"))
+    enlace_documentacion.pack(pady=10)
 
-    boton_ayuda = Button(ventana_inicio, text="Ayuda", command=lambda: messagebox.showinfo("Ayuda", "Sistema de gestión de rutas aéreas."), width=15, bg=color_boton, fg="white", font=("Arial", 12, "bold"))
+    # Entradas para el usuario y la contraseña
+    etiqueta_usuario = Label(ventana_inicio, text="Usuario:", font=("Arial", 12), fg=color_texto, bg=color_fondo)
+    etiqueta_usuario.pack(pady=10)
+    usuario_entry = Entry(ventana_inicio, font=("Arial", 12))
+    usuario_entry.pack()
+
+    etiqueta_contrasena = Label(ventana_inicio, text="Contraseña:", font=("Arial", 12), fg=color_texto, bg=color_fondo)
+    etiqueta_contrasena.pack(pady=10)
+    contrasena_entry = Entry(ventana_inicio, show="*", font=("Arial", 12))
+    contrasena_entry.pack()
+
+    # Botón "Iniciar Sesión"
+    boton_iniciar_sesion = Button(ventana_inicio, text="Iniciar Sesión", command=lambda: abrir_main_desde_ventana_inicial(usuario_entry, contrasena_entry), width=15, bg=color_boton, fg="white", font=("Arial", 12, "bold"))
+    boton_iniciar_sesion.pack(pady=20)
+    boton_iniciar_sesion.bind("<Enter>", resaltar)
+    boton_iniciar_sesion.bind("<Leave>", restaurar)
+
+    # Botón "Ayuda"
+    boton_ayuda = Button(ventana_inicio, text="Ayuda", command=lambda: messagebox.showinfo("Ayuda", "Sistema de gestión de rutas aéreas.  Por favor ingrese su usuario y contraseña"), width=15, bg=color_boton, fg="white", font=("Arial", 12, "bold"))
     boton_ayuda.pack(pady=10)
+    boton_ayuda.bind("<Enter>", resaltar)
+    boton_ayuda.bind("<Leave>", restaurar)
 
     ventana_inicio.attributes('-topmost', True)  
-    ventana_inicio.mainloop()
-
+    ventana_inicio.mainloop() 
 
 if __name__ == "__main__":
     ventana_inicial()
