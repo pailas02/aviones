@@ -186,7 +186,7 @@ def dijkstra():
         string_mostrar += f'{cont}-{i["nombre"]}\n'
         cont += 1
     # Verifica la entrada de lita de el numero del destino
-    origen = Keyboard.readIntRangeDefaultErrorMessage(f'{string_mostrar}\nIngrese El numero del destino:',1,12)
+    origen = Keyboard.readIntRangeDefaultErrorMessage(f'{string_mostrar}\nIngrese El numero del origen:',1,12)
     destino = Keyboard.readIntRangeDefaultErrorMessage(f'{string_mostrar}\nIngrese El numero del destino:',1,12)
     dijkstra = aeropuertos.dijkstra(librerias[origen-1]["nombre"], librerias[destino-1]["nombre"])
     algoritmo = "Dijkstra" + "  [" + librerias[origen-1]["nombre"] + "] ---> ["+ librerias[destino-1]["nombre"] + "]"  
